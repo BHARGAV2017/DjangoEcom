@@ -1,0 +1,21 @@
+1	Vivo z1 pro	65431212	vivo	20000	2
+2	Samsung 21gs	45632132	samsung	16000	2
+3	Moto G40	89796054	Moto	22000	2
+4	Bot xp	546738412	Bot	3000	1
+5	Sony gt	78605043	Sony	0	1
+6	Lg TV 800	54753647	LG	4000	1
+7	Round Neck  T shirt blue	1234324	Kamina	800	3
+8	Solid red shirt	14232512	Kamina	700	3
+9	Full sleeve t shirt	647542789	Bewakoof	630	3
+10	Formal Shirt	43243124	Highland	1200	3
+11	Jeans	73643237	Levies	1800	3
+12	Jeans	76465238	Roadstart	1999	3
+13	Red Shoes	536572128	woodland	3700	4
+
+
+
+1	Electronics
+2	Mobile phones
+3	clothes
+4	shoes
+5	Home utilities
