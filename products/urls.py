@@ -1,5 +1,5 @@
-# from django.urls import include, path
-# from products.views import ItemView, CatItemView
+from django.urls import include, path
+from products.views import ItemAPIView
 
 # # from products.views import PersonViewSet, SpeciesViewSet
 
@@ -8,10 +8,10 @@
 # # router.register(r'species', SpeciesViewSet)
 
 
-# urlpatterns = [
-#     path('items/', ItemView.as_view()),
-#     path('items/<str:pk>', ItemView.as_view()),
-#     path('category/<str:pk>', CatItemView.as_view()),
-#     path('category/', CatItemView.as_view())
+urlpatterns = [
+    path('items/', ItemAPIView.as_view()),
+    # path('items/<str:pk>', ItemView.as_view()),
+    # path('category/<str:pk>', CatItemView.as_view()),
+    # path('category/', CatItemView.as_view())
+]
 
-# ]

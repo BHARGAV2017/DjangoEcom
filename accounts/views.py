@@ -113,3 +113,13 @@ class UserView(APIView):
 
     # class UserCreate(APIView):
     """Create user"""
+
+class UserAllView(APIView):
+    def get(self, request):
+        data= []
+        all_users = CustomUser.objects.all()
+        for user in all_users:
+            # print(user.username)
+            data.append([user.username, user.role])
+        
+        return Response(data=data)
