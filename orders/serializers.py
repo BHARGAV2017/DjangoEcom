@@ -7,6 +7,10 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = "__all__"
 
+class OrderUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ["item", "ord_qty"]
 
 # # fields = ['user_order','item','quantity','seller_item']
 
