@@ -1,9 +1,10 @@
 from django.urls import include, path
-from orders.views import OrderAPIView
+from orders.views import OrderAPIView, ListAllOrders
 
 
 urlpatterns = [
     path("order/", OrderAPIView.as_view()),
+    path("orders/all/", ListAllOrders.as_view()),
 ]
 
 """path("order-items/", OrderItemView.as_view()),
