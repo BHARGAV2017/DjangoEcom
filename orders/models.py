@@ -3,7 +3,7 @@ from django.db import models
 # from django.contrib.auth.models import User
 from accounts.models import CustomUser
 from products.models import Item
-
+from datetime import date
 # Create your models here.
 class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -11,6 +11,7 @@ class Order(models.Model):
     ord_qty = models.IntegerField(default= 0)
     checkout= models.BooleanField(default=False)
     order_amount = models.IntegerField(default =0)
+    order_date = models.DateField() ## 2022-12-23 | YYYY-MM-DD
 
     def __str__(self):
         return str(self.id)

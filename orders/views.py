@@ -21,6 +21,7 @@ class OnlyAdminSuperuser(permissions.BasePermission):
 # permission #
 change is only reflected to that user account not for all accounts of Order table
 and can perform CRUD for that account.
+
 """
 
 class IsBuyersOrAdmin(permissions.BasePermission):
@@ -42,12 +43,19 @@ class OrderAPIView(APIView):
         data["user"] = userobj.pk  # ie{"user": 3}
         # print(request.data, user.pk) # request.data = {"user": 3}, user.pk= 3
         # print(type(request.data), type(user.pk)) # dict , int
-
-        serializer = OrderSerializer(data=data)
-        serializer.is_valid(raise_exception=True)  #
-        serializer.save()
-
-        return Response({"data": serializer.data, "message": "Order placed"})
+        item = Item.objects.get(id=data["item"])
+        ord_qty = data["ord_qty"]
+        if (int(item.qty) - int(ord_qty))>= 0:
+            item.qty = int(item.qty) - int(ord_qty)
+            data["order_amount"] = int(ord_qty) * int(item.price_per_item)
+            # data["item"] = item.pk
+            serializer = OrderSerializer(data=data)
+            serializer.is_valid(raise_exception=True)  #
+            serializer.save()
+            item.save()
+            return Response({"status":status.HTTP_200_OK,"message":"Order is sucessfully Updated"})
+        else:
+            return Response({"message": "Product is not available"})
 
     def get(self, request):
         # userobj = CustomUser.objects.get(email=request.user)
@@ -63,8 +71,8 @@ class OrderAPIView(APIView):
     def put(self, request):
         userobj = CustomUser.objects.get(email=request.user)
         # userobj.role
-        print(request.user)
-        print("pkkkkkkkkkkkkkkk",userobj.pk)
+        # print(request.user)
+        # print("pkkkkkkkkkkkkkkk",userobj.pk)
         id = request.data.get('id')
         user_id = userobj.pk ## Note user_id is not necessary it will extract from request.user
         ord_qty = request.data.get('ord_qty')

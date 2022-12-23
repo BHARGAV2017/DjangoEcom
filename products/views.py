@@ -4,6 +4,7 @@ from .serializers import ItemSerializer, ItemUpdateSerializer, CategorySerialize
 from accounts.models import CustomUser
 from .models import Item, Category
 from rest_framework import status
+# from orders.views import OnlyAdminSuperuser
 #todo permission only for seller / admin
 
 class ItemAPIView(APIView):
@@ -71,3 +72,9 @@ class CategoryAPIView(APIView):
         cat = Category.objects.all()
         cat.delete()
         return Response({"status":status.HTTP_200_OK,"message": "Category deleted"})
+
+# class ListAllItems(APIView):
+#     permission_classes = [OnlyAdminSuperuser]
+#     def get(self, request, *args, **kwargs):    
+#         serializer = ItemSerializer(Item.objects.all(), many=True)
+#         return Response(serializer.data)
