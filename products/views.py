@@ -1,10 +1,9 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import ItemSerializer, ItemUpdateSerializer
+from .serializers import ItemSerializer, ItemUpdateSerializer, CategorySerializer
 from accounts.models import CustomUser
-from .models import Item
+from .models import Item, Category
 from rest_framework import status
-
 #todo permission only for seller / admin
 
 class ItemAPIView(APIView):
@@ -53,3 +52,22 @@ class ItemAPIView(APIView):
             return Response({"status":status.HTTP_200_OK,"message":"Item Updated"})
         except Exception as e:
             return Response({"message":str(e)})
+
+
+
+class CategoryAPIView(APIView):
+    def post(self, request):
+        request.data["category_name"]=request.data.get("category_name").lower()
+        serializer=CategorySerializer(data =request.data)
+        serializer.is_valid(raise_exception= True)
+        serializer.save()
+    
+        return Response(serializer.data)
+    def get(self):
+        serializer = CategorySerializer(Category.objects.all(), many = True)
+        return Response(serializer.data)
+
+    def delete(self, request):
+        cat = Category.objects.all()
+        cat.delete()
+        return Response({"status":status.HTTP_200_OK,"message": "Category deleted"})

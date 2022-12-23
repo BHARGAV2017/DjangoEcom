@@ -1,5 +1,5 @@
 from django.urls import include, path
-from products.views import ItemAPIView
+from products.views import ItemAPIView, CategoryAPIView
 
 # # from products.views import PersonViewSet, SpeciesViewSet
 
@@ -10,8 +10,9 @@ from products.views import ItemAPIView
 
 urlpatterns = [
     path('items/', ItemAPIView.as_view()),
+    path('category/', CategoryAPIView.as_view())
     # path('items/<str:pk>', ItemView.as_view()),
     # path('category/<str:pk>', CatItemView.as_view()),
-    # path('category/', CatItemView.as_view())
+   
 ]
 
