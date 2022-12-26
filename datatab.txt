@@ -14,8 +14,130 @@
 
 
 
-1	Electronics
-2	Mobile phones
+1	electronics
+2	mobile phones	
 3	clothes
 4	shoes
-5	Home utilities
+5	personal care
+6	book
+
+052b584426ed1097bf25b55b0b6edcd2bb912b9f
+592454617afb00d1d5a291d5b52a3e6929546c11
+e35de4929bbfae793d2943dfd2a0f5fc47c04714
+ddfdd705c2a493bd2b6e049ffd8fc36b723de402
+19fef3e43ee10ae3702207663afe77e1ca71c598
+052be0c45d8d93bcf52aac222f9f91701f4416bf
+c35728dbf0e9a422805bdc8f21ce61a1c1e94982
+740f1a7e2723ecdc9c3c224ef02f4088898a53ac
+d16047ddc5d9ad76af23f8bd3859084390360fa0
+
+electronics 
+	[
+	smartwatch,
+	headphones,
+	pendrive,
+	memory card,
+	cameras,
+	printer,
+	tv,
+	]
+	
+mobile phones
+	[
+	samsung,
+	apple,
+	huawei,
+	nokia,
+	sony,
+	lg,
+	htc,
+	motorola
+	]
+	
+clothes
+	[
+	t shirt,
+	shirt,
+	sweater,
+	inner,
+	top,
+	jeans,
+	trouser,
+	boxer,
+	track pants,
+	skirts,
+	]
+
+shoes
+	[
+	nike,
+	adidas,
+	puma,
+	fila,
+	bata,
+	woodland,
+	reebok,
+	]
+	
+personal care
+	[
+	soap,
+	hand wash,
+	face wash,
+	body moisturizer,
+	shampoo,
+	conditioner,
+	toothpaste,
+	toothbrush,
+	face cream
+	]
+book
+	[
+	physics,
+	chemistry,
+	maths,
+	biology,
+	polity,
+	education,
+	history,
+	grography,
+	novel,
+	poetry,
+	computer
+	]
+
+
+
+
+electronics 
+	[
+	apple smartwatch,
+	boat smartwatch,
+	fastrack smartwatch,
+	boat headphones,
+	sony headphones,
+	oneplus headphones,
+	unicorn headphones,
+	senddisk pendrive,
+	hp pendrive,
+	samsung pendrive,
+	memory card,
+	senddisk memory card,
+	hp memory card,
+	samsung memory card,
+	Canon camera,
+	Sony ,
+	Nikon,
+	Panasonic,
+	Olympus
+	HP printer
+	Canon,
+	Xerox,
+	Epson,
+	Samsung TV,
+	LG TV,
+	Sony TV,
+	Xiaomi Mi TV,
+	Videocon TV
+	]
+

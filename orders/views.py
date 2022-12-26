@@ -39,7 +39,7 @@ class OrderAPIView(APIView):
 
     def post(self, request):
         userobj = CustomUser.objects.get(email=request.user)
-        data = request.data  # request.data is blank but we fill that according serializer reqirment ie{"user": 3}
+        data = request.data.copy()  # request.data is blank but we fill that according serializer reqirment ie{"user": 3}
         data["user"] = userobj.pk  # ie{"user": 3}
         # print(request.data, user.pk) # request.data = {"user": 3}, user.pk= 3
         # print(type(request.data), type(user.pk)) # dict , int
@@ -50,7 +50,7 @@ class OrderAPIView(APIView):
             data["order_amount"] = int(ord_qty) * int(item.price_per_item)
             # data["item"] = item.pk
             serializer = OrderSerializer(data=data)
-            serializer.is_valid(raise_exception=True)  #
+            serializer.is_valid(raise_exception=True) 
             serializer.save()
             item.save()
             return Response({"status":status.HTTP_200_OK,"message":"Order is sucessfully Updated"})

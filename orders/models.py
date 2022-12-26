@@ -7,8 +7,8 @@ from datetime import date
 # Create your models here.
 class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, default= 2)
-    ord_qty = models.IntegerField(default= 0)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    ord_qty = models.IntegerField()
     checkout= models.BooleanField(default=False)
     order_amount = models.IntegerField(default =0)
     order_date = models.DateField() ## 2022-12-23 | YYYY-MM-DD
