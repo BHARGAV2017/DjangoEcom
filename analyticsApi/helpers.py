@@ -1,5 +1,4 @@
 # TODO:: Raw Query using Q operator
-# TODO:: Query from custom input. e.g. Sold products by month name received as input
 # TODO:: top 3 frequent buyers and top 3 high paying buyers in each city
 
 from products.models import Item
@@ -37,13 +36,16 @@ def orders_by_year(year):
     result = Order.objects.annotate(year= ExtractYear('order_date')).values('year').annotate(sum_ordamount = Sum('order_amount')).order_by('-sum_ordamount')
     return result.filter(year=year)
 
+# Using raw query find monthwise total amount when given as input
 def orders_by_month_raw(date):
     result= []
     print(date)
     for ord in Order.objects.raw(f"select id, strftime('%Y-%m', order_date) as d, sum(order_amount) as s from orders_order where d = '{date}' group by d order by  s desc"):
-        result.append([ord.order_date, ord.order_amount])
+        result.append([ord.d, ord.s])
 
     return result
+
+
 
 # print(users_highest_sell())
 print("****************************************")
@@ -59,7 +61,8 @@ print("****************************************")
 print("****************************************")
 # print(monthwise_total_sell())
 print("****************************************")
-# print(orders_by_month_raw('2021-11'))
+print(orders_by_month_raw('2021-11'))
+print("****************************************")
 
 
 
