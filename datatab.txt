@@ -140,4 +140,76 @@ electronics
 	Xiaomi Mi TV,
 	Videocon TV
 	]
+	
+	
+	
+	
+-- which user has the highest sell
+
+-- select email, sum(order_amount) as sumord
+-- from
+-- 	(select order_amount, email
+-- 	from orders_order join accounts_customuser on orders_order.user_id = accounts_customuser.id
+-- 	)
+-- group by email
+-- order by sumord desc;
+
+-- Which category of products sells most
+
+-- select category_name, sum(order_amount) as sumord
+-- from
+-- 	(select order_amount, category_name
+-- 	from orders_order 
+-- 	join products_item on orders_order.item_id = products_item.id
+-- 	join products_category on products_item.category_id = products_category.id
+-- 	)
+-- group by category_name
+-- order by sumord desc;
+
+--  Which perticular product sold most
+
+-- select item_name, sum(order_amount) as sumord from orders_order
+-- join products_item on orders_order.item_id = products_item.id
+-- group by item_name
+-- order by sumord DESC;
+
+--  Find number of orders for each category of products
+-- 
+-- select category_name, count(order_amount) as ordam
+-- from orders_order as O
+-- join products_item as I on O.item_id = I.id
+-- join products_category as C on I.category_id = C.id
+-- group by category_name
+-- order by ordam  DESC
+
+-- Find number of orders for each category of products
+
+-- select item_name , count(item_id) as cn
+-- from orders_order as O
+-- join products_item as I on O.item_id = I.id
+-- group by item_name
+-- order by cn  DESC 
+-- LIMIT 10
+
+--  Find monthwise total sell for each year by input
+
+-- select strftime('%Y-%m', order_date) as d, sum(order_amount) as s
+-- from orders_order
+-- where d = '2021-11'
+-- GROUP by d
+-- order by  s desc;
+
+-- Find 
+
+-- select 
+
+
+
+
+
+
+
+
+
+
 

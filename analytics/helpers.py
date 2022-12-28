@@ -22,7 +22,7 @@ def most_sell_products():
     return result[:7]
 
 # Find number of orders for each category of products
-def most_ordered_products():
+def most_ordered_products_by_category():
     result = Order.objects.values("item_id__item_name").annotate(price_sum = Count("item_id")).order_by("-price_sum")
     return result[:7]
 
@@ -32,7 +32,7 @@ def monthwise_total_sell():
     return result[:7]
 
 # Highest number of orders by date
-def orders_by_year(year):
+def sells_by_input_year(year):
     result = Order.objects.annotate(year= ExtractYear('order_date')).values('year').annotate(sum_ordamount = Sum('order_amount')).order_by('-sum_ordamount')
     return result.filter(year=year)
 
@@ -48,21 +48,21 @@ def orders_by_month_raw(date):
 
 
 # print(users_highest_sell())
-print("****************************************")
+# print("****************************************")
 # print(get_highest_sell_category())
-print("****************************************")
+# print("****************************************")
 # print(most_sell_products())
-print("****************************************")
-# print(most_ordered_products())
-print("****************************************")
+# print("****************************************")
+# print(most_ordered_products_by_category())
+# print("****************************************")
 # print(monthwise_total_sell())
-print("****************************************")
-# print(orders_by_year('2019'))
-print("****************************************")
+# print("****************************************")
+# print(sells_by_input_year('2019'))
+# print("****************************************")
 # print(monthwise_total_sell())
-print("****************************************")
-print(orders_by_month_raw('2021-11'))
-print("****************************************")
+# print("****************************************")
+# print(orders_by_month_raw('2021-11'))
+# print("****************************************")
 
 
 
