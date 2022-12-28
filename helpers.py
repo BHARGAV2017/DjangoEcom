@@ -158,6 +158,47 @@ dict_mp= dict([
 	])
 
 # print("dict_mp",dict_mp)
+#****************************************************************
+#city name
+city= [
+		"Mumbai",
+		"Delhi",
+		"Bangalore",
+		"Hyderabad",
+		"Ahmedabad",
+		"Chennai",
+		"Kolkata",
+		"Surat",
+		"Pune",
+		"Jaipur",
+		"Lucknow",
+		"Kanpur",
+		"Nagpur",
+		"Indore",
+		"Thane",
+		"Bhopal",
+		"Visakhapatnam",
+		"Shimla",
+		"Chandigarh",
+		"Vadodara",
+		"Guwahati",
+		"Dehradun",
+		"Agra",
+		"Nashik",
+		"Faridabad",
+		]
+# putting address from the city
+from accounts.models import CustomUser
+def update_adress():
+	u= CustomUser.objects.all()
+	for i in range(len(u)):
+		# u[i].address = city[i]
+		# u[i].save()
+		print(u[i].address)
+	return "addresses are updated"
+
+#********************************************************************************************************************************
+
 # first create item table 
 def create_item_table(n=100):
 	for i in range(n):
@@ -232,5 +273,6 @@ def create_order_table(n):
 		# print("ffffff>>>",random_category[0],random_item[0], random_seller)
 
 
-print(random_date_gen())
-create_order_table(n=1)
+# print(random_date_gen())
+
+# create_order_table(n=1)
