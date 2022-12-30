@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AnalyticsapiConfig(AppConfig):
+class AnalyticsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'analyticsApi'
+    name = 'analytics'

@@ -203,13 +203,25 @@ electronics
 
 -- select 
 
+#
+select * 
+from orders_order
+where ord_qty = (select max(ord_qty) from orders_order)
 
 
 
+******************************************************************************************************************
+-- select *
+-- from 
+-- (
+-- select user_id, username, email, address, item_name  from orders_order 
+-- 	join accounts_customuser on orders_order.user_id = accounts_customuser.id
+-- 	join products_item on orders_order.item_id = products_item.id
+-- ) as ttab
+-- order by user_id
 
-
-
-
-
+select username, email, address, item_name from (select user_id, item_name  from orders_order join products_item on orders_order.item_id = products_item.id) as ttab 
+	join accounts_customuser on accounts_customuser.id = ttab.user_id
+	order by username
 
 

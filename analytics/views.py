@@ -28,4 +28,8 @@ class AnalyticsAPIView(APIView):
         if 'sells_by_input_months' == func:
             YearMonth = str(self.request.query_params.get('year-month'))
             return Response(status = status.HTTP_200_OK, data ={"data":orders_by_month_raw(YearMonth)}) 
+        if "list_user_orders" == func:
+            user_id = int(self.request.query_params.get('user_id'))
+            return Response(status = status.HTTP_200_OK, data = {"data": list_user_orders(user_id = user_id)})
+
         return Response(status = status.HTTP_200_OK, data = {"message": "Invalid"})

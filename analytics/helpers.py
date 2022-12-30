@@ -6,6 +6,8 @@ from orders.models import Order
 from django.db.models import Sum, Count
 from django.db.models.functions import TruncMonth, TruncYear,ExtractYear
 
+
+
 # which user has the highest sell
 def users_highest_sell():
     result =Order.objects.values("user_id__email").annotate(price_sum=Sum("order_amount") ).order_by("-price_sum")
@@ -45,6 +47,15 @@ def orders_by_month_raw(date):
 
     return result
 
+
+#************************************************************************************************************************************
+def list_user_orders(user_id):
+    result = Order.objects.values("item_id__item_name", "user_id__username", "user_id__email", "user_id__address")
+    print(result.query)
+    return result.filter(user_id = user_id)
+
+# print(list_user_orders(user_id = 16))
+#********************************************************************************************************************************
 
 
 # print(users_highest_sell())

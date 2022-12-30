@@ -165,38 +165,22 @@ city= [
 		"Delhi",
 		"Bangalore",
 		"Hyderabad",
-		"Ahmedabad",
 		"Chennai",
-		"Kolkata",
-		"Surat",
-		"Pune",
-		"Jaipur",
-		"Lucknow",
-		"Kanpur",
-		"Nagpur",
-		"Indore",
-		"Thane",
-		"Bhopal",
-		"Visakhapatnam",
-		"Shimla",
-		"Chandigarh",
-		"Vadodara",
 		"Guwahati",
-		"Dehradun",
-		"Agra",
-		"Nashik",
-		"Faridabad",
 		]
 # putting address from the city
 from accounts.models import CustomUser
-def update_adress():
+
+def update_address():
 	u= CustomUser.objects.all()
 	for i in range(len(u)):
-		# u[i].address = city[i]
-		# u[i].save()
+		rndi= random.randrange(0,6)
+		u[i].address = city[rndi]
+		u[i].save()
 		print(u[i].address)
 	return "addresses are updated"
 
+# update_address()
 #********************************************************************************************************************************
 
 # first create item table 
